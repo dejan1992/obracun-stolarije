@@ -1,0 +1,36 @@
+.list_container{
+  width: 70%;
+  margin: auto;
+}
+
+.list_container table{
+  width: 100%;
+  border-collapse: collapse;
+  -webkit-box-shadow: 0px 0px 11px -7px rgba(0,0,0,0.81); 
+  box-shadow: 0px 0px 11px -7px rgba(0,0,0,0.81);
+}
+
+.list_container td,
+.list_container th{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px; 
+  text-align: center;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+.list_container .delete_icon {
+  color: red;
+}
+
+.list_container .red{
+  color: red;
+}
+
+.list_container .green{
+  color: green;
+}
