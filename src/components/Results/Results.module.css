@@ -1,0 +1,12 @@
+.results_container{ 
+  width: 70%;
+  margin: 20px auto;
+  text-align: right;
+  padding: 10px;
+  color: #333;
+}
+
+.results_container span{
+  font-size:25px;
+  color: rgb(0, 88, 0);
+}

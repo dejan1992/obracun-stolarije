@@ -1,0 +1,86 @@
+.delete-module-background{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  background-color:  rgba(0, 0, 0, 0.9);
+}
+
+.delete-new-window-module{
+  background:#fff;
+  padding: 20px 30px;
+  width: 400px;
+  border-radius: 0 0 10px 10px;
+}
+
+.delete-module-header{
+  background-color: #ff3333;
+  width: 400px;
+  border-radius: 10px 10px 0 0;
+}
+
+.delete-module-header h1{
+  margin : 20px 0;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size:26px;
+}
+
+
+.delete-new-window-module .buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-new-window-module button {margin: 30px 5px 20px 5px;
+  display: block;
+  padding: 15px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 95px;
+}
+
+
+.close-window {
+  background-color: #ff3333;
+  color: #fff;
+}
+
+.close-window:hover{
+  cursor: pointer;
+  background-color: #880000;
+}
+
+table{
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+}
+
+.delete-list_container td,
+.delete-list_container th{
+  text-align: left;
+  padding: 4px; 
+  text-align: center;
+  }
+
+  .delete-list_container th{
+    background-color: #3FAAD7;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+ .delete_icon {
+  color: red;
+}
