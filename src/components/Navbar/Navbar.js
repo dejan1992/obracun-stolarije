@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className={styles.container}>
         <ul className={styles.navbar_main}>
           <div className={styles.logo}>
-            <i class="fab fa-windows fa-2x"></i> Simić s.p.
+            <i class="fab fa-windows fa-2x"></i>
           </div>
           <ul className={styles.navbar_right}>
             <li className={styles.info}>Info</li>

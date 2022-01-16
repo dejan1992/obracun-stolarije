@@ -5,6 +5,7 @@
 
 .list_container table{
   width: 100%;
+  background: #fff;
   border-collapse: collapse;
   -webkit-box-shadow: 0px 0px 11px -7px rgba(0,0,0,0.81); 
   box-shadow: 0px 0px 11px -7px rgba(0,0,0,0.81);
@@ -12,10 +13,14 @@
 
 .list_container td,
 .list_container th{
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 10px; 
   text-align: center;
+  }
+
+  .list_container th{
+    background-color: #3FAAD7;
+    color: #fff;
   }
 
   tr:nth-child(even) {
