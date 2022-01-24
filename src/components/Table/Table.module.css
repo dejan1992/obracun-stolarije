@@ -3,6 +3,13 @@
   margin: auto;
 }
 
+@media screen and (max-width: 501px) {
+  .list_container {
+    width: 95%;
+    font-size: 14px;
+  }
+}
+
 .list_container table{
   width: 100%;
   background: #fff;

@@ -19,17 +19,41 @@
   border-radius: 0 0 10px 10px;
 }
 
+.delete-new-window-module {
+  animation: spin forwards 0.15s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.delete-module-header {
+  animation: spin forwards 0.15s linear;
+}
+
 .delete-module-header{
-  background-color: #ff3333;
+  background: #ff3333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
   width: 400px;
   border-radius: 10px 10px 0 0;
 }
 
 .delete-module-header h1{
-  margin : 20px 0;
-  text-align: center;
+  text-align: left;
   color: rgb(255, 255, 255);
-  font-size:26px;
+  font-size:20px;
+}
+
+.close-module:hover{
+  color: rgb(145, 145, 145);
 }
 
 
@@ -48,7 +72,7 @@
 }
 
 
-.close-window {
+/* .close-window {
   background-color: #ff3333;
   color: #fff;
 }
@@ -56,7 +80,7 @@
 .close-window:hover{
   cursor: pointer;
   background-color: #880000;
-}
+} */
 
 table{
   width: 100%;
@@ -83,4 +107,9 @@ table{
 
  .delete_icon {
   color: red;
+}
+
+.delete_icon:hover{
+  cursor: pointer;
+  color: rgb(90, 0, 0);
 }

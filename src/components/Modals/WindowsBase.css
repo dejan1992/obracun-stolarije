@@ -1,0 +1,116 @@
+.module-background{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color:  rgba(0, 0, 0, 0.9);
+}
+
+.new-window-module{
+  background:#fff;
+  padding: 30px 40px;
+  width: 300px;
+  border-radius: 0 0 10px 10px;
+}
+
+.new-window-module {
+  animation: spin forwards 0.15s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+.module-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #3FAAD7;
+  width: 300px;
+  border-radius: 10px 10px 0 0;
+}
+
+.module-header {
+  animation: spin forwards 0.15s linear;
+}
+
+.module-header h1{
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-size:20px;
+}
+
+.close-module {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(221, 221, 221);
+}
+
+.close-module:hover{
+  cursor: pointer;
+  color: #ff3333;
+}
+
+.new-window-module form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  width:100%;
+}
+
+.new-window-module label {
+  display: block;
+  margin: 10px 0 5px 0;
+}
+.new-window-module input {
+  display: block;
+  width: 200px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgb(151, 151, 151);
+}
+
+.new-window-module .buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.new-window-module button{
+  margin: 30px 5px 20px 5px;
+  display: block;
+  padding: 15px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width:200px;
+  -webkit-box-shadow: 1px 1px 7px 1px #000000; 
+  box-shadow: 1px 1px 7px 1px #000000;
+
+}
+
+
+.add-window {
+  background-color: #3bbb00;
+  color: #fff;
+}
+
+.add-window:hover{
+  cursor: pointer;
+  background-color: #1f6300;
+}
+
+

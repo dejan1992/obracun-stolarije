@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./NewWindow.css"
 
-const NewWindow = props => {
+const NewWindow = (props) => {
 
   // State
   const [enteredHeight, setEnteredHeight] = useState("")
@@ -26,20 +26,23 @@ const NewWindow = props => {
     const NewWindow = {
       height: enteredHeight,
       width: enteredWidth,
-      price: enteredPrice
+      price: enteredPrice,
+      area: enteredHeight * enteredWidth,
     }
     props.onSaveNewWindow(NewWindow)
+
 
     setEnteredHeight('')
     setEnteredWidth('')
     setEnteredPrice('')
   }
 
+
   return (
     <div className="module-background">
       <div className="module-header">
-        <div className="close-window"><i class="fas fa-times"></i></div>
         <h1>Dodaj novi prozor</h1>
+        <div onClick={props.closeModal} className="close-module"><i class="fas fa-times fa-2x"></i></div>
       </div>
       <div className="new-window-module">
         <form action="" onSubmit={submitHandler}>
@@ -61,7 +64,7 @@ const NewWindow = props => {
           </div>
         </form>
       </div>
-    </div>
+    </div >
   )
 }
 
