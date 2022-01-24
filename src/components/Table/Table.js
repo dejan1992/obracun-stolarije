@@ -18,41 +18,17 @@ const Table = props => {
           </tr>
         </thead>
         <tbody id="list">
-          <TableItem
-            height={props.windowsBase[0].height}
-            width={props.windowsBase[0].width}
-            blinds={props.windowsBase[0].blinds}
-            area={props.windowsBase[0].area}
-            price={props.windowsBase[0].price}
-          />
-          <TableItem
-            height={props.windowsBase[1].height}
-            width={props.windowsBase[1].width}
-            blinds={props.windowsBase[0].blinds}
-            area={props.windowsBase[1].area}
-            price={props.windowsBase[1].price}
-          />
-          <TableItem
-            height={props.windowsBase[0].height}
-            width={props.windowsBase[0].width}
-            blinds={props.windowsBase[0].blinds}
-            area={props.windowsBase[0].area}
-            price={props.windowsBase[0].price}
-          />
-          <TableItem
-            height={props.windowsBase[0].height}
-            width={props.windowsBase[0].width}
-            blinds={props.windowsBase[0].blinds}
-            area={props.windowsBase[0].area}
-            price={props.windowsBase[0].price}
-          />
-          <TableItem
-            height={props.windowsBase[0].height}
-            width={props.windowsBase[0].width}
-            blinds={props.windowsBase[0].blinds}
-            area={props.windowsBase[0].area}
-            price={props.windowsBase[0].price}
-          />
+          {props.windows.map(window => (
+            <TableItem
+              key={window.id}
+              id={window.id}
+              height={window.height}
+              width={window.width}
+              blinds={window.blinds}
+              area={window.area}
+              price={window.price}
+            />
+          ))}
 
         </tbody>
       </table>

@@ -3,7 +3,6 @@ ul{
 }
 .navbar{
   width: 100vw;
-  height:70px;
   background: #3FAAD7;
   color: #fff;
 }
@@ -11,7 +10,7 @@ ul{
 .navbar .container{
   margin: auto;
   max-width: 1200px;
-  padding:20px;
+  padding:16px;
 }
 
 .navbar_main{
@@ -57,4 +56,16 @@ ul{
 .navbar_right .remove:hover{
   cursor: pointer;
   background-color: #880000;
+} 
+
+.navbar_right .info{
+  background-color: #5e5e5e;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 10px;
+}
+
+.navbar_right .info:hover{
+  cursor: pointer;
+  background-color: #2c2c2c;
 } 

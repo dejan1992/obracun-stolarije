@@ -1,11 +1,12 @@
 import React from 'react'
 import "./DeleteWindow.css"
 
-const DeleteWindow = () => {
+const DeleteWindow = (props) => {
   return (
     <div className="delete-module-background">
       <div className="delete-module-header">
         <h1>Obriši iz baze</h1>
+        <div onClick={props.closeModalDelete} className="close-module"><i class="fas fa-times fa-2x"></i></div>
       </div>
       <div className="delete-new-window-module">
 
