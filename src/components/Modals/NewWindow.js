@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./NewWindow.css"
+import { v4 as uuidv4 } from 'uuid'
 
 const NewWindow = (props) => {
 
@@ -24,14 +25,13 @@ const NewWindow = (props) => {
     event.preventDefault()
 
     const NewWindow = {
+      id: uuidv4(),
       height: enteredHeight,
       width: enteredWidth,
       price: enteredPrice,
       area: enteredHeight * enteredWidth,
     }
     props.onSaveNewWindow(NewWindow)
-
-
     setEnteredHeight('')
     setEnteredWidth('')
     setEnteredPrice('')

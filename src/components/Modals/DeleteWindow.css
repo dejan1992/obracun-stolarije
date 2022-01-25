@@ -15,7 +15,7 @@
 .delete-new-window-module{
   background:#fff;
   padding: 20px 30px;
-  width: 400px;
+  width: 600px;
   border-radius: 0 0 10px 10px;
 }
 
@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  width: 400px;
+  width: 600px;
   border-radius: 10px 10px 0 0;
 }
 

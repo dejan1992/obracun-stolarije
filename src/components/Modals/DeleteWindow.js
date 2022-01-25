@@ -1,7 +1,11 @@
 import React from 'react'
+import { v4 as uuidv4 } from "uuid"
+
 import "./DeleteWindow.css"
 
 const DeleteWindow = (props) => {
+  const data = props.getWindows;
+  console.log(data)
   return (
     <div className="delete-module-background">
       <div className="delete-module-header">

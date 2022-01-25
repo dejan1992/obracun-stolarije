@@ -3,7 +3,7 @@ import style from "./Table.module.css"
 import TableItem from "../TableItem/TableItem"
 
 const Table = props => {
-
+  let length = props.length;
   return (
     <div className={style.list_container}>
       <table>
@@ -21,6 +21,7 @@ const Table = props => {
           {props.windows.map(window => (
             <TableItem
               key={window.id}
+              num={length}
               id={window.id}
               height={window.height}
               width={window.width}

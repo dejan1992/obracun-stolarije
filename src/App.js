@@ -8,49 +8,49 @@ import NewWindow from "./components/Modals/NewWindow"
 import DeleteWindow from "./components/Modals/DeleteWindow"
 
 const DUMMY_BASE = [
-  {
-    id: 1,
-    height: 3200,
-    width: 1200,
-    blinds: 1,
-    area: 1.22,
-    price: 150
-  },
+  // {
+  //   id: 1,
+  //   height: 3200,
+  //   width: 1200,
+  //   blinds: 1,
+  //   area: 1.22,
+  //   price: 150
+  // },
 
-  {
-    id: 2,
-    height: 1400,
-    width: 1400,
-    blinds: 1,
-    area: 2.22,
-    price: 250
-  },
-  {
-    id: 3,
-    height: 1200,
-    width: 1200,
-    blinds: 1,
-    area: 1.22,
-    price: 150
-  },
-  {
-    id: 4,
-    height: 1200,
-    width: 1200,
-    blinds: 1,
-    area: 1.22,
-    price: 150
-  }
+  // {
+  //   id: 2,
+  //   height: 1400,
+  //   width: 1400,
+  //   blinds: 1,
+  //   area: 2.22,
+  //   price: 250
+  // },
+  // {
+  //   id: 3,
+  //   height: 1200,
+  //   width: 1200,
+  //   blinds: 1,
+  //   area: 1.22,
+  //   price: 150
+  // },
+  // {
+  //   id: 4,
+  //   height: 1200,
+  //   width: 1200,
+  //   blinds: 1,
+  //   area: 1.22,
+  //   price: 150
+  // }
 
 ]
 
 const App = props => {
-  const [windowsBase, setBase] = useState(DUMMY_BASE)
+  const [windowsBase, setBase] = useState(getWindows())
 
 
   const saveNewWindowHandler = w_base => {
     setBase(prevBase => {
-      return [w_base, ...prevBase]
+      return [...prevBase, w_base]
     })
   }
 
@@ -60,6 +60,14 @@ const App = props => {
     const temp = JSON.stringify(windowsBase)
     localStorage.setItem('window', temp)
   }, [windowsBase])
+
+  //get from localStorage
+
+  function getWindows() {
+    const temp2 = localStorage.getItem("window")
+    const inBaseWindows = JSON.parse(temp2)
+    return inBaseWindows || []
+  }
 
 
   const [modalStatus, setModalStatus] = useState(false)
@@ -98,7 +106,10 @@ const App = props => {
       {modalStatus && < NewWindow
         onSaveNewWindow={saveNewWindowHandler} closeModal={closeModalHandler} />}
 
-      {modalStatusDelete && <DeleteWindow closeModalDelete={closeModalDeleteHandler} />}
+      {modalStatusDelete && <DeleteWindow
+        closeModalDelete={closeModalDeleteHandler}
+        getWindows={getWindows}
+      />}
       <Navbar openModal={openModalHandler} openModalDelete={openModalDeleteHandler} />
 
 

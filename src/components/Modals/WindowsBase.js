@@ -27,7 +27,7 @@ const NewWindow = (props) => {
       height: enteredHeight,
       width: enteredWidth,
       price: enteredPrice,
-      area: enteredHeight * enteredWidth,
+      area: (enteredHeight * enteredWidth) / 100
     }
     props.onSaveNewWindow(NewWindow)
 
