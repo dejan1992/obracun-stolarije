@@ -5,7 +5,7 @@ import style from "../Table/Table.module.css"
 const TableItem = props => {
   return (
     <tr>
-      <td>{props.id}</td>
+      <td>{1}</td>
       <td>{props.height} x {props.width}</td>
       <td className={style.red}><i class="fas fa-times"></i></td>
       <td>{props.area}</td>
