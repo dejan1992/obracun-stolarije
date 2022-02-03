@@ -8,13 +8,9 @@ import { ReactNotifications } from 'react-notifications-component'
 import { Store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
-
 const Input = props => {
-  const windows = props.windows;
-
   const [searchWindow, setSearchWindow] = useState("")
-
-
+  const windows = props.windows;
   const searchWindowHandler = e => {
     setSearchWindow(e.target.value)
   }
@@ -35,7 +31,6 @@ const Input = props => {
           onScreen: false
         }
       });
-
       return
     }
 
@@ -45,8 +40,6 @@ const Input = props => {
     props.WindowArea(((Math.floor(windowToAdd[0] * windowToAdd[2]) / 1000000)))
 
   }
-
-
   return (
     <div className={style.input}>
       <h1>Obračun stolarije</h1>
@@ -72,10 +65,6 @@ const Input = props => {
               renderInput={(parms) => <TextField {...parms} label="Pretraži h x š" onSelect={searchWindowHandler} />}
             />
           </Stack>
-          {/* <div className={style.roletne}>
-            <label>ROLETNE:</label>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-          </div> */}
         </div>
         <div>
           <button className={style.button}>Dodaj</button>
