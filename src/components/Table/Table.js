@@ -11,7 +11,7 @@ const Table = props => {
       <table>
         <thead>
           <tr>
-            {/* <th>ID</th> */}
+            <th>ID</th>
             <th>Dimenzije [mm]</th>
             {/* <th>Roletne</th> */}
             <th>Površina [m<sup>2</sup>]</th>
@@ -20,10 +20,10 @@ const Table = props => {
           </tr>
         </thead>
         <tbody id="list">
-          {props.addWindowToTable.length > 0 && props.addWindowToTable.map(window => (
+          {props.addWindowToTable.length > 0 && props.addWindowToTable.map((window, index) => (
             <TableItem
-              key={uuidv4()}
-              num={window.length}
+              key={index + 1}
+              num={index + 1}
               height={window[0]}
               width={window[2]}
               // blinds={window.blinds}
