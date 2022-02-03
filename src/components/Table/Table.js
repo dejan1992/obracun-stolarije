@@ -1,33 +1,35 @@
 import React from 'react'
 import style from "./Table.module.css"
 import TableItem from "../TableItem/TableItem"
+import { v4 as uuidv4 } from "uuid"
+
 
 const Table = props => {
-  let length = props.length;
+
   return (
     <div className={style.list_container}>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            {/* <th>ID</th> */}
             <th>Dimenzije [mm]</th>
-            <th>Roletne</th>
+            {/* <th>Roletne</th> */}
             <th>Površina [m<sup>2</sup>]</th>
             <th>Cijena [KM]</th>
             <th>Obriši</th>
           </tr>
         </thead>
         <tbody id="list">
-          {props.windows.map(window => (
+          {props.addWindowToTable.length > 0 && props.addWindowToTable.map(window => (
             <TableItem
-              key={window.id}
-              num={length}
-              id={window.id}
-              height={window.height}
-              width={window.width}
-              blinds={window.blinds}
-              area={window.area}
-              price={window.price}
+              key={uuidv4()}
+              num={window.length}
+              height={window[0]}
+              width={window[2]}
+              // blinds={window.blinds}
+              area={((window[0] * window[2]) / 1000000).toFixed(2)}
+              price={window[4]}
+            // deleteWindow={props.deleteWindow}
             />
           ))}
 

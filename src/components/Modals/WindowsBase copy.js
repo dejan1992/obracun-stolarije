@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import "./NewWindow.css"
-import { v4 as uuidv4 } from 'uuid'
 
 const NewWindow = (props) => {
 
@@ -24,21 +23,16 @@ const NewWindow = (props) => {
   const submitHandler = (event) => {
     event.preventDefault()
 
-    if (enteredHeight == '' || enteredWidth == '' || enteredPrice == '') {
-      alert("Popuni sva polja!")
-    } else {
-      const NewWindow = {
-        id: uuidv4(),
-        height: enteredHeight,
-        width: enteredWidth,
-        price: enteredPrice,
-        area: ((enteredHeight * enteredWidth) / 1000000).toFixed(2),
-      }
-      props.onSaveNewWindow(NewWindow)
-      setEnteredHeight('')
-      setEnteredWidth('')
-      setEnteredPrice('')
+    const NewWindow = {
+      height: enteredHeight,
+      width: enteredWidth,
+      price: enteredPrice,
+      area: (enteredHeight * enteredWidth) / 100
     }
+    props.onSaveNewWindow(NewWindow)
+    setEnteredHeight('')
+    setEnteredWidth('')
+    setEnteredPrice('')
   }
 
 
@@ -46,7 +40,7 @@ const NewWindow = (props) => {
     <div className="module-background">
       <div className="module-header">
         <h1>Dodaj novi prozor</h1>
-        <div onClick={props.closeModal} className="close-module"><i className="fas fa-times fa-2x"></i></div>
+        <div onClick={props.closeModal} className="close-module"><i class="fas fa-times fa-2x"></i></div>
       </div>
       <div className="new-window-module">
         <form action="" onSubmit={submitHandler}>

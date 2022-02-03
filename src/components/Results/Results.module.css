@@ -10,3 +10,16 @@
   font-size:25px;
   color: rgb(0, 88, 0);
 }
+
+@media screen and (max-width: 620px) {
+  .results_container {
+  width: 100%;
+  padding-right: 30px;
+
+
+    font-size:14px;
+  }
+  .results_container span{
+    font-size:18px;
+  }
+}
