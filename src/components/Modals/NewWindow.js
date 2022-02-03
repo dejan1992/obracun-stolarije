@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./NewWindow.css"
 import { v4 as uuidv4 } from 'uuid'
+import { Store } from 'react-notifications-component'
 
 const NewWindow = (props) => {
 
@@ -25,8 +26,36 @@ const NewWindow = (props) => {
     event.preventDefault()
 
     if (enteredHeight == '' || enteredWidth == '' || enteredPrice == '') {
-      alert("Popuni sva polja!")
+
+      Store.addNotification({
+        title: "Greška!",
+        message: "Ispuni sva polja",
+        type: "warning",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
+          duration: 2000,
+          onScreen: false
+        }
+      });
     } else {
+
+      Store.addNotification({
+        title: "Uspjeh!",
+        message: "Prozor uspješno dodan",
+        type: "success",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
+          duration: 2000,
+          onScreen: false
+        }
+      });
+
       const NewWindow = {
         id: uuidv4(),
         height: enteredHeight,

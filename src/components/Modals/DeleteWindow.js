@@ -21,7 +21,6 @@ const DeleteWindow = (props) => {
             <tr>
               <th>ID</th>
               <th>Dimenzije [mm]</th>
-              {/* <th>Roletne</th> */}
               <th>Površina [m<sup>2</sup>]</th>
               <th>Cijena [KM]</th>
               <th>Obriši</th>

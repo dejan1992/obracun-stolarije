@@ -4,6 +4,10 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';
 import Box from "@mui/material/Box";
+import { ReactNotifications } from 'react-notifications-component'
+import { Store } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+
 
 const Input = props => {
   const windows = props.windows;
@@ -18,7 +22,20 @@ const Input = props => {
   const AddWindowToTlist = e => {
     e.preventDefault();
     if (searchWindow == '') {
-      alert('Unesi dimenzije!')
+      Store.addNotification({
+        title: "Greška!",
+        message: "Ispuni polje",
+        type: "warning",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
+          duration: 2000,
+          onScreen: false
+        }
+      });
+
       return
     }
 
