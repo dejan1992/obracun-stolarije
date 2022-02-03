@@ -10,6 +10,9 @@ import DeleteWindow from "./components/Modals/DeleteWindow"
 import { Route, Switch } from "react-router-dom"
 import Info from "./pages/Info"
 
+import { ReactNotifications, Store } from 'react-notifications-component'
+
+
 const App = props => {
   const [windowsBase, setBase] = useState(getWindows())
   const [windowsTable, setwindowsTable] = useState('')
@@ -108,11 +111,29 @@ const App = props => {
         return window.id !== id
       })
     ])
+
+    Store.addNotification({
+      title: "Uspjeh!",
+      message: "Prozor uspješno obrisan",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 2000,
+        onScreen: false
+      }
+    });
   }
+
+
+
 
 
   return (
     <>
+      <ReactNotifications />
       <Navbar openModal={openModalHandler} openModalDelete={openModalDeleteHandler} />
       <Switch>
         <Route exact path="/">
@@ -129,11 +150,7 @@ const App = props => {
           <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} WindowArea={WindowArea} />
           <Table addWindowToTable={windowsTable} />
           <Results price={price} area={area} />
-          {/* 
-      {windowsBase.map((window, key) => {
-        return <div>{window.width}</div>
-      })} */}
-          {/* <Input2 windows={windowsBase} /> */}
+
         </Route>
         <Route path="/info">
           <Info />
