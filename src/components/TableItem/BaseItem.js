@@ -3,9 +3,9 @@ import style from "../Table/Table.module.css"
 import styleItem from "./TableItem.module.css"
 
 
-const TableItem = props => {
+const BaseItem = props => {
 
-  const id = props.num
+  const id = props.num2
 
 
   return (
@@ -20,4 +20,4 @@ const TableItem = props => {
   )
 }
 
-export default TableItem
+export default BaseItem

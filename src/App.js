@@ -10,49 +10,11 @@ import DeleteWindow from "./components/Modals/DeleteWindow"
 import { Route, Switch } from "react-router-dom"
 import Info from "./pages/Info"
 
-
-const DUMMY_BASE = [
-  // {
-  //   id: 1,
-  //   height: 3200,
-  //   width: 1200,
-  //   blinds: 1,
-  //   area: 1.22,
-  //   price: 150
-  // },
-
-  // {
-  //   id: 2,
-  //   height: 1400,
-  //   width: 1400,
-  //   blinds: 1,
-  //   area: 2.22,
-  //   price: 250
-  // },
-  // {
-  //   id: 3,
-  //   height: 1200,
-  //   width: 1200,
-  //   blinds: 1,
-  //   area: 1.22,
-  //   price: 150
-  // },
-  // {
-  //   id: 4,
-  //   height: 1200,
-  //   width: 1200,
-  //   blinds: 1,
-  //   area: 1.22,
-  //   price: 150
-  // }
-
-]
-
 const App = props => {
   const [windowsBase, setBase] = useState(getWindows())
   const [windowsTable, setwindowsTable] = useState('')
-  const [price, setPrice] = useState('')
-  const [suma, setSuma] = useState('')
+  const [price, setPrice] = useState(0)
+  const [area, setArea] = useState(0)
 
 
   const saveNewWindowHandler = w_base => {
@@ -69,16 +31,14 @@ const App = props => {
 
   const WindowPrice = wPrice => {
     setPrice(prevPrice => {
-      return ([...prevPrice, wPrice])
+      return (prevPrice + wPrice)
     })
-    console.log(price)
-    if (price == '') {
-      setSuma(price)
-    } else {
-      let reducer = (previousValue, currentValue) => previousValue + currentValue;
-      setSuma(price.reduce(reducer))
+  }
 
-    }
+  const WindowArea = wArea => {
+    setArea(prevArea => {
+      return (prevArea + wArea)
+    })
   }
 
   // function getSum() {
@@ -155,8 +115,6 @@ const App = props => {
     <>
       <Navbar openModal={openModalHandler} openModalDelete={openModalDeleteHandler} />
       <Switch>
-
-
         <Route exact path="/">
           {modalStatus && < NewWindow
             onSaveNewWindow={saveNewWindowHandler} closeModal={closeModalHandler} />}
@@ -168,9 +126,9 @@ const App = props => {
             deleteWindow={delBaseWindowHandler}
           />}
 
-          <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} />
+          <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} WindowArea={WindowArea} />
           <Table addWindowToTable={windowsTable} />
-          <Results sum={suma} />
+          <Results price={price} area={area} />
           {/* 
       {windowsBase.map((window, key) => {
         return <div>{window.width}</div>

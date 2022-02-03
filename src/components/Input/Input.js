@@ -23,10 +23,9 @@ const Input = props => {
     }
 
     const windowToAdd = searchWindow.split(" ");
-
-
     props.TableItem(windowToAdd);
-    props.WindowPrice(parseInt(windowToAdd[4]))
+    props.WindowPrice(parseInt(windowToAdd[4]));
+    props.WindowArea(((Math.floor(windowToAdd[0] * windowToAdd[2]) / 1000000)))
 
   }
 
@@ -50,7 +49,7 @@ const Input = props => {
               noOptionsText={"nema u bazi"}
               renderOption={(props, windows) => (
                 <Box component="li" {...props} key={windows.id}>
-                  {windows.height} x {windows.height}
+                  {windows.height} x {windows.width}
                 </Box>
               )}
               renderInput={(parms) => <TextField {...parms} label="Pretraži h x š" onSelect={searchWindowHandler} />}

@@ -1,5 +1,5 @@
 import React from 'react'
-import TableItem from "../TableItem/TableItem"
+import BaseItem from "../TableItem/BaseItem"
 // import { v4 as uuidv4 } from "uuid"
 // import style from "../Table/Table.module.css"
 
@@ -19,7 +19,7 @@ const DeleteWindow = (props) => {
         <table className="delete-list_container">
           <thead>
             <tr>
-              {/* <th>ID</th> */}
+              <th>ID</th>
               <th>Dimenzije [mm]</th>
               {/* <th>Roletne</th> */}
               <th>Površina [m<sup>2</sup>]</th>
@@ -28,10 +28,11 @@ const DeleteWindow = (props) => {
             </tr>
           </thead>
           <tbody id="list">
-            {props.windows.map(window => (
-              <TableItem
+            {props.windows.map((window, index) => (
+              <BaseItem
                 key={window.id}
-                num={window.id}
+                num2={window.id}
+                num={index + 1}
                 height={window.height}
                 width={window.width}
                 // blinds={window.blinds}
