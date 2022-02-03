@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 import Input from "./components/Input/Input"
+import Input2 from "./components/Input/Input2"
 import Table from "./components/Table/Table"
 import Results from "./components/Results/Results"
 import NewWindow from "./components/Modals/NewWindow"
 import DeleteWindow from "./components/Modals/DeleteWindow"
+import { Route, Switch } from "react-router-dom"
+import Info from "./pages/Info"
+
 
 const DUMMY_BASE = [
   // {
@@ -46,6 +50,9 @@ const DUMMY_BASE = [
 
 const App = props => {
   const [windowsBase, setBase] = useState(getWindows())
+  const [windowsTable, setwindowsTable] = useState('')
+  const [price, setPrice] = useState('')
+  const [suma, setSuma] = useState('')
 
 
   const saveNewWindowHandler = w_base => {
@@ -53,6 +60,39 @@ const App = props => {
       return [...prevBase, w_base]
     })
   }
+
+  const addNewWindowInTable = wtable => {
+    setwindowsTable(prevTable => {
+      return ([...prevTable, wtable])
+    })
+  }
+
+  const WindowPrice = wPrice => {
+    setPrice(prevPrice => {
+      return ([...prevPrice, wPrice])
+    })
+    console.log(price)
+    if (price == '') {
+      setSuma(price)
+    } else {
+      let reducer = (previousValue, currentValue) => previousValue + currentValue;
+      setSuma(price.reduce(reducer))
+
+    }
+  }
+
+  // function getSum() {
+  // if (price == '') {
+  //   setSuma(0)
+  // } else {
+  //   let reducer = (previousValue, currentValue) => previousValue + currentValue;
+  //   setSuma(price.reduce(reducer))
+  //   setSuma(1)
+  // }
+  // console.log(suma)
+  // }
+
+  // getSum()
 
   // local strorage
 
@@ -100,22 +140,47 @@ const App = props => {
   //   console.log(windowData)
   // }
 
+  // delete from base
+
+  const delBaseWindowHandler = id => {
+    setBase([
+      ...windowsBase.filter(window => {
+        return window.id !== id
+      })
+    ])
+  }
+
 
   return (
     <>
-      {modalStatus && < NewWindow
-        onSaveNewWindow={saveNewWindowHandler} closeModal={closeModalHandler} />}
-
-      {modalStatusDelete && <DeleteWindow
-        closeModalDelete={closeModalDeleteHandler}
-        getWindows={getWindows}
-      />}
       <Navbar openModal={openModalHandler} openModalDelete={openModalDeleteHandler} />
+      <Switch>
 
 
-      <Input />
-      <Table windows={windowsBase} />
-      <Results />
+        <Route exact path="/">
+          {modalStatus && < NewWindow
+            onSaveNewWindow={saveNewWindowHandler} closeModal={closeModalHandler} />}
+
+          {modalStatusDelete && <DeleteWindow
+            closeModalDelete={closeModalDeleteHandler}
+            // getWindows={getWindows}
+            windows={windowsBase}
+            deleteWindow={delBaseWindowHandler}
+          />}
+
+          <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} />
+          <Table addWindowToTable={windowsTable} />
+          <Results sum={suma} />
+          {/* 
+      {windowsBase.map((window, key) => {
+        return <div>{window.width}</div>
+      })} */}
+          {/* <Input2 windows={windowsBase} /> */}
+        </Route>
+        <Route path="/info">
+          <Info />
+        </Route>
+      </Switch>
     </>
   );
 }

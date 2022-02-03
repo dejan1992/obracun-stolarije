@@ -26,7 +26,7 @@
   }
 
   .list_container th{
-    background-color: #3FAAD7;
+    background-color: #56b89a;
     color: #fff;
   }
 
@@ -35,13 +35,13 @@
   }
 
 
-.list_container .delete_icon {
+/* .list_container .delete_icon {
   color: red;
 }
 
 .list_container .red{
   color: red;
-}
+} */
 
 .list_container .green{
   color: green;

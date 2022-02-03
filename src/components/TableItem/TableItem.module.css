@@ -1,0 +1,8 @@
+.delete_icon {
+  color: red;
+}
+
+.delete_icon:hover {
+  cursor: pointer;
+  color: rgb(90, 0, 0);
+}
