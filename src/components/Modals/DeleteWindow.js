@@ -1,10 +1,7 @@
 import React from 'react'
 import BaseItem from "../TableItem/BaseItem"
-// import { v4 as uuidv4 } from "uuid"
-// import style from "../Table/Table.module.css"
-
 import "./DeleteWindow.css"
-// onClick = {() => props.deleteWindowBase(id)}
+
 const DeleteWindow = (props) => {
   const data = props.getWindows;
 
@@ -34,7 +31,6 @@ const DeleteWindow = (props) => {
                 num={index + 1}
                 height={window.height}
                 width={window.width}
-                // blinds={window.blinds}
                 area={window.area}
                 price={window.price}
                 deleteWindow={props.deleteWindow}
@@ -43,7 +39,6 @@ const DeleteWindow = (props) => {
 
           </tbody>
         </table>
-
       </div>
     </div>
   )

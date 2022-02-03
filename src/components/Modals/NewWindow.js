@@ -70,7 +70,6 @@ const NewWindow = (props) => {
     }
   }
 
-
   return (
     <div className="module-background">
       <div className="module-header">
@@ -93,7 +92,6 @@ const NewWindow = (props) => {
           </div>
           <div className='buttons'>
             <button type='submit' className='add-window'>DODAJ</button>
-            {/* <a type="none" className='close-window'>ODUSTANI</a> */}
           </div>
         </form>
       </div>

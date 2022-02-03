@@ -9,16 +9,13 @@ import NewWindow from "./components/Modals/NewWindow"
 import DeleteWindow from "./components/Modals/DeleteWindow"
 import { Route, Switch } from "react-router-dom"
 import Info from "./pages/Info"
-
 import { ReactNotifications, Store } from 'react-notifications-component'
-
 
 const App = props => {
   const [windowsBase, setBase] = useState(getWindows())
   const [windowsTable, setwindowsTable] = useState('')
   const [price, setPrice] = useState(0)
   const [area, setArea] = useState(0)
-
 
   const saveNewWindowHandler = w_base => {
     setBase(prevBase => {
@@ -44,21 +41,6 @@ const App = props => {
     })
   }
 
-  // function getSum() {
-  // if (price == '') {
-  //   setSuma(0)
-  // } else {
-  //   let reducer = (previousValue, currentValue) => previousValue + currentValue;
-  //   setSuma(price.reduce(reducer))
-  //   setSuma(1)
-  // }
-  // console.log(suma)
-  // }
-
-  // getSum()
-
-  // local strorage
-
   useEffect(() => {
     const temp = JSON.stringify(windowsBase)
     localStorage.setItem('window', temp)
@@ -71,7 +53,6 @@ const App = props => {
     const inBaseWindows = JSON.parse(temp2)
     return inBaseWindows || []
   }
-
 
   const [modalStatus, setModalStatus] = useState(false)
   const [modalStatusDelete, setModalStatusDelete] = useState(false)
@@ -95,16 +76,6 @@ const App = props => {
     setModalStatusDelete(false)
   }
 
-  // const saveNewWindowHandler = (newWindowData) => {
-  //   const windowData = {
-  //     ...newWindowData,
-  //     id: Math.random().toString()
-  //   }
-  //   console.log(windowData)
-  // }
-
-  // delete from base
-
   const delBaseWindowHandler = id => {
     setBase([
       ...windowsBase.filter(window => {
@@ -127,10 +98,6 @@ const App = props => {
     });
   }
 
-
-
-
-
   return (
     <>
       <ReactNotifications />
@@ -139,18 +106,15 @@ const App = props => {
         <Route exact path="/">
           {modalStatus && < NewWindow
             onSaveNewWindow={saveNewWindowHandler} closeModal={closeModalHandler} />}
-
           {modalStatusDelete && <DeleteWindow
             closeModalDelete={closeModalDeleteHandler}
             // getWindows={getWindows}
             windows={windowsBase}
             deleteWindow={delBaseWindowHandler}
           />}
-
           <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} WindowArea={WindowArea} />
           <Table addWindowToTable={windowsTable} />
           <Results price={price} area={area} />
-
         </Route>
         <Route path="/info">
           <Info />
