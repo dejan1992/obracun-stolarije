@@ -13,7 +13,6 @@ const Table = props => {
             <th>Dimenzije [mm]</th>
             <th>Površina [m<sup>2</sup>]</th>
             <th>Cijena [KM]</th>
-            <th>Tip</th>
           </tr>
         </thead>
         <tbody id="list">

@@ -3,12 +3,12 @@
   margin: 20px auto;
   text-align: right;
   padding: 10px;
-  color: #333;
+  color: #001514;
 }
 
 .results_container span{
   font-size:25px;
-  color: rgb(0, 88, 0);
+  color: #6B0504;
 }
 
 @media screen and (max-width: 620px) {

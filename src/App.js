@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 import Input from "./components/Input/Input"
-import Input2 from "./components/Input/Input2"
+// import Input2 from "./components/Input/Input2"
 import Table from "./components/Table/Table"
 import Results from "./components/Results/Results"
 import NewWindow from "./components/Modals/NewWindow"
@@ -12,15 +11,36 @@ import Info from "./pages/Info"
 import { ReactNotifications, Store } from 'react-notifications-component'
 
 const App = props => {
-  const [windowsBase, setBase] = useState(getWindows())
+  const [windowsBase, setBase] = useState([])
   const [windowsTable, setwindowsTable] = useState('')
   const [price, setPrice] = useState(0)
   const [area, setArea] = useState(0)
 
-  const saveNewWindowHandler = w_base => {
-    setBase(prevBase => {
-      return [...prevBase, w_base]
-    })
+  // show Table on button click
+
+  const [table, setSTable]= useState(false);
+
+  const showTableHandler = ()=> {
+    setSTable(true)
+  }
+
+
+  const searchWindowShow = ()=> {
+    setSTable(false)
+  }
+
+  async function saveNewWindowHandler (w_base) {
+    const response = await fetch("https://rb-stolarija-default-rtdb.firebaseio.com/window.json",{
+      method: 'POST',
+      body: JSON.stringify(w_base),
+      headers: {'Content-Type': 'application/json'}
+    });
+
+    const data = await response.json();
+
+    // setBase(prevBase => {
+    //   return [...prevBase, w_base]
+    // })
   }
 
   const addNewWindowInTable = wtable => {
@@ -41,18 +61,44 @@ const App = props => {
     })
   }
 
-  useEffect(() => {
-    const temp = JSON.stringify(windowsBase)
-    localStorage.setItem('window', temp)
-  }, [windowsBase])
+
 
   //get from localStorage
+  // console.log(111)
 
-  function getWindows() {
-    const temp2 = localStorage.getItem("window")
-    const inBaseWindows = JSON.parse(temp2)
-    return inBaseWindows || []
-  }
+  async function getWindows() {
+
+    const response= await fetch("https://rb-stolarija-default-rtdb.firebaseio.com/window.json");
+    if(!response.ok){
+      console.log('nesto nije u redu');
+    }
+
+    const data = await response.json();
+
+    // console.log(data)
+
+    const inBaseWindows = [];
+    for(const key in data){
+      inBaseWindows.push({
+        // id: data[key].id,
+        id: key,
+        area: data[key].area,
+        height: data[key].height,
+        width: data[key].width,
+        price: data[key].price,
+      })
+      // console.log(inBaseWindows)
+    }
+// return(inBaseWindows)
+    setBase(inBaseWindows)
+    // console.log(inBaseWindows)
+
+    // const temp2 = localStorage.getItem("window")
+    // const inBaseWindows = JSON.parse(temp2)
+  // return inBaseWindows || []
+   }
+  //  getWindows()
+
 
   const [modalStatus, setModalStatus] = useState(false)
   const [modalStatusDelete, setModalStatusDelete] = useState(false)
@@ -76,27 +122,40 @@ const App = props => {
     setModalStatusDelete(false)
   }
 
-  const delBaseWindowHandler = id => {
-    setBase([
-      ...windowsBase.filter(window => {
-        return window.id !== id
-      })
-    ])
+   const delBaseWindowHandler = async (key) => {
+
+    const response = await fetch(`https://rb-stolarija-default-rtdb.firebaseio.com/window/${key}.json`,{
+      method:"DELETE",
+      body: JSON.stringify(),
+      headers: {
+        'Content-type': 'application/json'
+    }
+    })
+
+    getWindows()
+    const windowsBase = await response.json();
+
 
     Store.addNotification({
-      title: "Uspjeh!",
-      message: "Prozor uspješno obrisan",
+      title: "Prozor uspješno obrisan!",
+      // message: "Prozor uspješno obrisan",
       type: "success",
       insert: "top",
       container: "top-right",
       animationIn: ["animate__animated", "animate__fadeIn"],
       animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
-        duration: 2000,
+        duration: 1000,
         onScreen: false
       }
     });
   }
+
+  useEffect(() => {
+    getWindows()
+  //   // const temp = JSON.stringify(windowsBase)
+  //   // localStorage.setItem('window', temp)
+  }, [modalStatus, modalStatusDelete])
 
   return (
     <>
@@ -112,9 +171,11 @@ const App = props => {
             windows={windowsBase}
             deleteWindow={delBaseWindowHandler}
           />}
-          <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} WindowArea={WindowArea} />
-          <Table addWindowToTable={windowsTable} />
-          <Results price={price} area={area} />
+          <Input windows={windowsBase} TableItem={addNewWindowInTable} WindowPrice={WindowPrice} WindowArea={WindowArea} showTable={showTableHandler} searchWindowShow={searchWindowShow}/>
+          
+          {table && <Table addWindowToTable={windowsTable}/>}
+          {table && <Results price={price} area={area} />}
+
         </Route>
         <Route path="/info">
           <Info />

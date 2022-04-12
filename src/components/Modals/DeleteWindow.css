@@ -39,7 +39,7 @@
 }
 
 .delete-module-header{
-  background: #ff3333;
+  background: #6B0504;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,7 +87,7 @@ table{
   }
 
   .delete-list_container th{
-    background-color: #3FAAD7;
+    background-color: #001514;
     color: #fff;
   }
 

@@ -27,10 +27,13 @@ const Input = props => {
         animationIn: ["animate__animated", "animate__fadeIn"],
         animationOut: ["animate__animated", "animate__fadeOut"],
         dismiss: {
-          duration: 2000,
+          duration: 1000,
           onScreen: false
         }
       });
+
+      props.searchWindowShow(false)
+
       return
     }
 
@@ -40,6 +43,8 @@ const Input = props => {
     props.WindowArea(((Math.floor(windowToAdd[0] * windowToAdd[2]) / 1000000)))
 
   }
+
+
   return (
     <div className={style.input}>
       <h1>Obračun stolarije</h1>
@@ -67,7 +72,7 @@ const Input = props => {
           </Stack>
         </div>
         <div>
-          <button className={style.button}>Dodaj</button>
+          <button className={style.button} onClick={props.showTable}>Dodaj</button>
         </div>
       </form>
     </div>

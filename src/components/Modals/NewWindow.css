@@ -9,7 +9,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color:  rgba(0, 0, 0, 0.9);
+  background-color:rgba(0, 0, 0, 0.9);
 }
 
 .new-window-module{
@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background: #3FAAD7;
+  background: #6B0504;
   width: 300px;
   border-radius: 10px 10px 0 0;
 }
@@ -61,7 +61,7 @@
 
 .close-module:hover{
   cursor: pointer;
-  color: #ff3333;
+  /* color: #ff3333; */
 }
 
 .new-window-module form{
@@ -106,13 +106,13 @@
 
 
 .add-window {
-  background-color: #3bbb00;
+  background-color: #001514;
   color: #fff;
 }
 
 .add-window:hover{
   cursor: pointer;
-  background-color: #1f6300;
+  background-color: #002c29;
 }
 
 

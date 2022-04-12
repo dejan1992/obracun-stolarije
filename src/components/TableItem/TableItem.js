@@ -9,7 +9,6 @@ const TableItem = props => {
       <td>{props.height} x {props.width}</td>
       <td>{props.area}</td>
       <td>{props.price}</td>
-      <td ><i class="fas fa-columns"></i></td>
     </tr>
   )
 }

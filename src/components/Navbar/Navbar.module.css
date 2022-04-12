@@ -3,7 +3,7 @@ ul{
 }
 .navbar{
   width: 100vw;
-  background: #56b89a;
+  background: #6b0504;
   color: #fff;
 }
 
@@ -13,11 +13,8 @@ ul{
   padding:16px;
 }
 
-.logo{
-  font-family: 'Righteous', cursive;
-  font-size: 34px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
+img{
+  height: 44px;
 }
 
 .logo:hover{
@@ -49,7 +46,7 @@ ul{
 }
 
 .navbar_right .add{
-  background-color: #34a101;
+  background-color: #001514;
   border: none;
   border-radius: 3px;
   padding: 8px 10px;
@@ -57,11 +54,10 @@ ul{
 
 .navbar_right .add:hover{
   cursor: pointer;
-  background-color: #1f6300;
 } 
 
 .navbar_right .remove{
-  background-color: #d14141;
+  background-color: #001514;
   border: none;
   border-radius: 3px;
   padding: 8px 10px;
@@ -69,7 +65,6 @@ ul{
 
 .navbar_right .remove:hover{
   cursor: pointer;
-  background-color: #880000;
 } 
 
 .navbar_right .info{
